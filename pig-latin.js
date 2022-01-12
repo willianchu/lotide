@@ -1,4 +1,4 @@
-const args = process.argv.slice(2); // Took what it´s matter
+const args = process.argv.slice(2); // Took what its matter
 
 const tail = function(array) {
   if (array.length < 2) {
