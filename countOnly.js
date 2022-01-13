@@ -15,10 +15,10 @@ const countOnly = function(allItems, itemsToCount) {
   const outputCount = {};
   for (let name of firstNames) {
     if (itemsToCount[name]) {
-      if (isNaN(outputCount[name])) {
-        outputCount[name] = 1; // initialize key
+      if (outputCount[name]) {
+        outputCount[name]  ++; // initialize key
       } else {
-        outputCount[name] ++; // increment existing key
+        outputCount[name] = 1; // increment existing key
       }
     }
   }
