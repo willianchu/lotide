@@ -7,22 +7,33 @@ const assertEqual = function(actual, expected) {
 };
 
 const eqArrays = function(arr1, arr2) {
-  if (arr1.length !== arr2.length) {
+  if (arr1.length !== arr2.length) { // if the sizes don't match
+    //console.log("False 01");
     return false;
   }
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) {
-      return false;
+  for (let i = 0; i < arr1.length; i++) { // loop through the both arrays and compare each element
+    switch (Array.isArray(arr1[i])) {
+    case true:
+      if (!eqArrays(arr1[i], arr2[i])) { // call recursively if the element is an array
+        return false; // if one branch returns false, return false
+      }
+      break;
+    default:
+      if (arr1[i] !== arr2[i]) {
+        //console.log("False 02", arr1[i], arr2[i], typeof arr1[i]);
+        return false;
+      }
     }
   }
+  //console.log("True 03");
   return true;
 };
 
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
-assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), false); // => should NOT PASS
 
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true); // =>should PASS
-assertEqual(eqArrays([3, "1", "2"], ["1", "2", 3]), true); // => should NOT PASS
+assertEqual(eqArrays([[2, 3], [4]], [[2, 3], [4]]), true); // => true
+assertEqual(eqArrays([[2, 3], [4]], [[2, 3], [4, 5]]), false); // => false
+assertEqual(eqArrays([[2, 3], [4]], [[2, 3], 4]), false); // => false
+
 
 
 
