@@ -7,3 +7,5 @@ const reverse = function(text) { // Function to reverse the text
 for (let i = 0; i < args.length; i++) { // iterate over the array
   console.log(reverse(args[i]));
 }
+
+module.exports = reverse;

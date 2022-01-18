@@ -1,25 +1,5 @@
 // auxiliary code already in Lotide library
-const eqArrays = function(arr1, arr2) {
-  if (arr1.length !== arr2.length) {
-    return false;
-  }
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) {
-      return false;
-    }
-  }
-  return true;
-};
-
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
-
-
+const eqArrays = require('./eqArrays');
 
 // extra auxiliary code
 const eqVariables = (variable1, variable2) => { //compares 2 variables if they´re equal
@@ -71,12 +51,4 @@ const eqObjects = function(object1, object2) {
 };
 
 
-// code test
-const ab = { a: "1", b: "2" , plus: { c: "3", d: "4" } };
-const ba = { b: "2", a: "1" , plus: { c: "3", d: "4" } };
-assertEqual(eqObjects(ab, ba), true); // It's true but in different order
-
-assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true);
-
-assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false);
-assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false);
+module.exports = eqObjects;
