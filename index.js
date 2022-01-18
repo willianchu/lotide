@@ -15,17 +15,7 @@ const without = require('./without');
 
 
 module.exports = {
-  head:   head,
-  tail:   tail,
-  middle: middle,
-  assertArraysEqual: assertArraysEqual,
-  assertEqual: assertEqual,
-  eqArrays: eqArrays,
-  eqObjects: eqObjects,
-  flatten: flatten,
-  map: map,
-  reverse: reverse,
-  without: without
+  head, tail, middle, assertArraysEqual, assertEqual, eqArrays, eqObjects, flatten, map, reverse, without
 };
 
 
