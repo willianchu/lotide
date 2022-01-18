@@ -1,8 +1,8 @@
 {
-  "name": "lotide",
+  "name": "@willianchu/lotide",
   "version": "1.0.1",
   "description": "A study clone of Lodash",
-  "main": "FindKeyByValue.js",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },
